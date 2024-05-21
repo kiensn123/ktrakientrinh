@@ -14,12 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class, "homepage"]);
-Route::get("/about-us",[HomeController::class,"about_us"]);
+use App\Http\Controllers\ProductController;
 
-Route::get("/category/{category:slug}",[HomeController::class,"category"]);
-
-Route::get("/product/{id}",[HomeController::class,"product"]);
-
-Route::get("/search",[HomeController::class,"search"]);
-Route::post("/add-to-cart/{id}",[HomeController::class,"addToCart"]);
+Route::get('/products/create', [ProductController::class, 'create']);
+Route::post('/products', [ProductController::class, 'store']);
